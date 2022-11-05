@@ -1,0 +1,14 @@
+name: JLSTAT
+title: JLSTAT
+username:
+account: kt-tgm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7532569
+bundleId: 6478960
+url: https://kt-tgm.shinyapps.io/JLSTAT/
+when: 1667657079.96487
+lastSyncTime: 1667657079.96488
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: notes.R
