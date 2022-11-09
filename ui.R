@@ -193,8 +193,44 @@ bd_tab_population <- function() {
     tabName = "population_pyramid",
     column(
       width = 16,
-      box(title = "解説"),
-      box(plotOutput("plot2"), title = "図")
+      
+      header(
+        title = "人口ピラミッド", 
+        description = "1920年～2065年",
+        icon = "chart bar"
+      ),
+      
+      box(
+        title = "解説",
+        color = "blue",
+        div(
+          p("解説"),
+          # p(str_c(read_lines("R/Population/desc_population_total.txt"), collapse = "")),
+          `style` = "font-size: 18px;"
+        )
+      ),
+      
+      box(
+        title = "図",
+        color = "blue",
+        segment(
+          class = "raised segment",
+          plotlyOutput(
+            outputId = "pyramid_total",
+            width = "100%",
+            height = "600px"
+          )
+        ),
+        segment(
+          class = "raised segment",
+          div(
+            p("出典"),
+            # p(read_lines("R/Population/cap_population_total.txt")),
+            p("注：2020年までは観測値，2025年以降は推計値出生中位(死亡中位)．2000年までは「85-89歳」カテゴリーは「85歳以上」を意味している．"),
+            `style` = "font-size: 10px;"
+          )
+        )
+      )
     )
   )
   
@@ -213,6 +249,7 @@ ui_bodies <-
     color = "blue",
     inverted = T,
     tabItems(
+      busy_spin,
       bd_tab_home(),
       bd_tab_population(),
       tabItem(
